@@ -1,0 +1,36 @@
+<div class="w-full bg-blue-300 h-100vh">
+
+  <div class="flex justify-between mx-10 my-10">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+
+    <div>
+      <h1 class="font-bold text-4xl text-white"><span class="text-orange-800">KIDS</span> Checkin</h1>
+      <p class="text-gray-600">KIDS CHECKIN, mais agilidade, mais segurança para os filhos, mais tranquilidade para os pais</p>
+    </div>
+  </div>
+
+
+  <div class="flex flex-col sm:flex-row justify-between mx-10 my-5">
+
+      <%= render 'usuario' %>
+
+      <div class="mx-auto w-full sm:w-3/4 mb-5 bg-white shadow p-5 rounded-lg">
+
+        <h1 class="font-bold text-4xl">Adicionar Criança</h1>
+        <%= render "form", crianca: @crianca %>
+
+      </div>
+
+  </div>
+
+  <div id="criancas" data-controller="checkins" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+    <%= render @criancas %>
+  </div>
+
+  <div class="mx-10 my-5">
+    <%= link_to "Código da Etiqueta", confirma_path, class: 'bg-green-600 text-white rounded-full px-5 py-3' %>
+  </div>
+
+</div>

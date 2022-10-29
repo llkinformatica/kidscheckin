@@ -1,0 +1,18 @@
+<div class="flex w-full h-screen">
+  <div class="w-1/2 p-10">
+    <h1 class="font-bold text-4xl">KIDS Checkin</h1>
+    <p class="text-gray-600">KIDS CHECKIN, mais agilidade, mais segurança para os filhos, mais tranquilidade para os pais</p>
+    <% if current_usuario %>
+      <h2><%= current_usuario.full_name %></h2>
+      <p>UID: <%= current_usuario.uid %></p>
+        <%= image_tag(current_usuario.avatar_url, class: 'rounded-full') %>
+        <%= link_to "Edit Account", edit_usuario_registration_path %>
+        <%= button_to "Logout", destroy_usuario_session_path, data: {turbo: "false"}, method: :delete %>
+      <% else %>
+        <%= link_to "Login", new_usuario_session_path %>
+      <% end %>    
+  </div>
+  <div class="w-1/2 bg-gray-300">
+    <p>Imagem</p>
+  </div>
+</div>

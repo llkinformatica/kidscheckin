@@ -1,0 +1,11 @@
+<div class="flex flex-col bg-white mb-5 w-full sm:w-1/4 justify-center items-center shadow py-5 mx-4 rounded-lg">
+    <%= qrcode().as_svg(
+    color: "000",
+    shape_rendering: "crispEdges",
+    module_size: 12,
+    standalone: true,
+    use_path: true
+    ).html_safe %> 
+
+    <h1 class="text-3xl font-medium"><%= current_usuario.codigo %></h1>
+</div>

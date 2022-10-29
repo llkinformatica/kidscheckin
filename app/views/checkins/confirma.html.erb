@@ -1,0 +1,17 @@
+<div class="flex flex-col w-full bg-green-500 h-screen justify-center items-center">
+
+<%= qrcode().as_svg(
+  color: "000",
+  shape_rendering: "crispEdges",
+  module_size: 11,
+  standalone: true,
+  use_path: true
+).html_safe %> 
+
+<h1 class="text-3xl font-medium"><%= current_usuario.codigo %></h1>
+
+<p class="my-5">
+  <%= link_to "Voltar", checkins_url, class: "bg-gray-300 rounded-full px-8 py-2" %>
+</p>
+
+</div>
