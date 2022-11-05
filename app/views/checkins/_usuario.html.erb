@@ -1,8 +1,8 @@
       <div class="flex flex-col items-center justify-center w-full sm:w-1/4 mb-5">
 
           <% if current_usuario %>
-            <h2><%= current_usuario.full_name %></h2>
-            <%= image_tag(current_usuario.avatar_url, class: 'rounded-full') %>
+            <h2><%= current_usuario.email if current_usuario.email.present? %></h2>
+            <%= image_tag(current_usuario.avatar_url, class: 'rounded-full') if current_usuario.avatar_url.present? %>
             <%= link_to "Editar Conta", edit_usuario_registration_path %>
             <%= button_to "Sair do Sistema", destroy_usuario_session_path, data: {turbo: "false"}, method: :delete %>
           <% else %>

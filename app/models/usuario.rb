@@ -1,9 +1,18 @@
+require "securerandom"
+
 class Usuario < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2]
+
+  before_create :gera_uuid, unless: :uid
+
+  def gera_uuid
+     self.uid = SecureRandom.uuid
+     self.codigo = rand 999999 
+  end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |usuario|

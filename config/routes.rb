@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
   # Defines the root path route ("/")
-  root "checkins#index"
+  root "welcome#index"
 
   get "checkins/:id/checked", to: "checkins#checked", as: "checked"
   patch "checkins/:id/checked", to: "checkins#checked"
